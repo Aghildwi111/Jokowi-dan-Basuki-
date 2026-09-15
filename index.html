@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jokowi dan basuki</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #111827;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #awal {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game {
+            display: none;
+            padding: 30px;
+        }
+
+        button {
+            padding: 20px 40px;
+            font-size: 22px;
+            border: none;
+            border-radius: 15px;
+            background: #22c55e;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="awal">
+    <h1>Nigga Coba Pencet</h1>
+    <p>bukan virus wok,aghil yg buat omaga</p>
+
+    <button id="mulai">pencet atau jokowi pergi kerumahmu</button>
+</div>
+
+<div id="game">
+    <h1>beneran dipencet loh ya</h1>
+    <p>Nantilah ku beresin,males aghil masih banyak tugas.</p>
+    <button id="kembali">balik lagi yo wok</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    var tombolMulai = document.getElementById("mulai");
+    var halamanAwal = document.getElementById("awal");
+    var halamanGame = document.getElementById("game");
+
+    tombolMulai.addEventListener("click", function() {
+
+        halamanAwal.style.display = "none";
+        halamanGame.style.display = "block";
+
+    });
+
+    document.getElementById("kembali").addEventListener("click", function() {
+
+        halamanGame.style.display = "none";
+        halamanAwal.style.display = "flex";
+
+    });
+
+});
+</script>
+
+</body>
+</html>
