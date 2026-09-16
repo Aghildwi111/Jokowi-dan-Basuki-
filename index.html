@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jokowi dan basuki</title>
+    <title>jawaban saya</title>
 
     <style>
         body {
@@ -20,6 +20,34 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        #loading {
+            display: none;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #loadingBarBox {
+            width: 80%;
+            max-width: 400px;
+            height: 25px;
+            background: #374151;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #loadingBar {
+            width: 0%;
+            height: 100%;
+            background: #22c55e;
+        }
+
+        #loadingText {
+            font-size: 22px;
+            margin: 20px;
         }
 
         #game {
@@ -41,16 +69,30 @@
 <body>
 
 <div id="awal">
-    <h1>Nigga Coba Pencet</h1>
-    <p>bukan virus wok,aghil yg buat omaga</p>
+    <h1>Jawaban Aghil</h1>
+    <p>Hai,gg coy dibuka mantab,tapi kalau kelompok b.indo aku mau ditetuin sama saya ya,jadi kalau kamu/yg lain kecewa,mohon maafkan saya wok noo.</p>
 
-    <button id="mulai">pencet atau jokowi pergi kerumahmu</button>
+    <button id="mulai">boleh cek(30 detik saja)</button>
+</div>
+
+<div id="loading">
+
+    <h1>sabar ya kalau ga tugas bu siay nambah :(</h1>
+
+    <div id="loadingText">
+        sabar ya kalau g nanti bu siay tambah tugas
+    </div>
+
+    <div id="loadingBarBox">
+        <div id="loadingBar"></div>
+    </div>
+
 </div>
 
 <div id="game">
-    <h1>beneran dipencet loh ya</h1>
-    <p>Nantilah ku beresin,males aghil masih banyak tugas.</p>
-    <button id="kembali">balik lagi yo wok</button>
+    <h1>aku sama andra,ridho</h1>
+    <p>maaf banget aku soalnya kayaknya udah sama andra aja,jadi maaf ya jangan kecewa soalnya masih ada tugas kelompok lain.</p>
+    <button id="kembali">keluaring gugel chrome lu wok atau prabowo pidato</button>
 </div>
 
 <script>
@@ -58,12 +100,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var tombolMulai = document.getElementById("mulai");
     var halamanAwal = document.getElementById("awal");
+    var halamanLoading = document.getElementById("loading");
     var halamanGame = document.getElementById("game");
+
+    var loadingBar = document.getElementById("loadingBar");
+    var loadingText = document.getElementById("loadingText");
 
     tombolMulai.addEventListener("click", function() {
 
         halamanAwal.style.display = "none";
-        halamanGame.style.display = "block";
+        halamanLoading.style.display = "flex";
+
+        var progress = 0;
+
+        // 30 detik = 30000 milidetik
+        // 100 langkah = 300 milidetik per langkah
+        var loading = setInterval(function() {
+
+            progress += 1;
+
+            loadingBar.style.width = progress + "%";
+            loadingText.innerHTML = "Loading " + progress + "%";
+
+            if (progress >= 100) {
+
+                clearInterval(loading);
+
+                setTimeout(function() {
+
+                    halamanLoading.style.display = "none";
+                    halamanGame.style.display = "block";
+
+                }, 500);
+            }
+
+        }, 300);
 
     });
 
